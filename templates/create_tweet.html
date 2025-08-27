@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Create Tweet{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4">Create New Tweet</h2>
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="content" class="form-label">Tweet Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="picture" class="form-label">Image (optional)</label>
+                    <input type="file" class="form-control" id="picture" name="picture" accept="image/*">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Post Tweet</button>
+                <a href="{% url 'tweet_list' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
