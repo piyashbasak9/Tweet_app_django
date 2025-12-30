@@ -45,12 +45,3 @@ class UserRegisterForm(UserCreationForm):
         if User.objects.filter(email=email).exists():
             raise ValidationError("This email is already registered.")
         return email
-
-class EmailAuthenticationForm(AuthenticationForm):
-    username = forms.EmailField(
-        label='Email',
-        widget=forms.EmailInput(attrs={
-            'class': 'form-control',
-            'placeholder': 'Enter your email'
-        })
-    )
