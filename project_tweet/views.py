@@ -40,5 +40,4 @@ def user_login(request):
         else:
             messages.error(request, 'Invalid email or password.')
     
-    form = EmailAuthenticationForm()
     return render(request, 'login.html', {'form': form})
